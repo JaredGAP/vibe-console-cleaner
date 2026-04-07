@@ -32,3 +32,7 @@ To ensure your cleanup hasn't broken anything, you MUST proactively use the proj
 ## Edge Cases to Handle
 - **Custom Loggers:** Do not touch or modify custom logging utilities (e.g., `logger.info()`, `pino.info()`, `Sentry.log()`) unless explicitly instructed, as these are typically designed for production environments.
 - **Return Values:** Ensure that removing a `console.log(value)` that wraps a function call does not accidentally remove the function call itself if it has side effects.
+
+## Post-Cleanup Actions (Required)
+1. **Git Commit:** If working in a Git repository, offer to commit the changes. Use a clear, conventional commit message like `chore: remove development console logs`.
+2. **Summary Report:** Provide a brief summary to the user detailing exactly how many `console` statements were removed and confirming that `console.error` and `console.warn` statements were preserved and tests passed.
